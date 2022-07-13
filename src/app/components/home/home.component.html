@@ -1,0 +1,42 @@
+<h1 (copy)="printMessage()">Hello {{ name }} {{ lastName }}</h1>
+<h2>This is the HOME page</h2>
+
+<!-- <input type="text" [placeholder]="message" [value]="name" (keyup)="updateName($event)" > -->
+<input type="text" [placeholder]="message" [(ngModel)]="name">
+<input type="text" [placeholder]="message" [(ngModel)]="lastName">
+<button [disabled]="isDisabled" (click)="sayHello()">Submit</button>
+
+<div *ngIf="isPepe()">
+    <p [ngStyle]="{color: 'lawngreen', 'font-size.px': secretMessageFontSize, 'background-color': secretMessageBackgroundColor}">This is a secret message</p>
+</div>
+
+<h1>Shopping List</h1>
+
+<input type="text" placeholder="Introduce a shopping item" (keyup.enter)="addShoppingItem()" [(ngModel)]="shoppingItemName">
+<input type="number" placeholder="Introduce the quantity of the item" min="1" [(ngModel)]="shoppingItemQty">
+<button (click)="addShoppingItem()" [disabled]="shoppingItemName === '' || shoppingItemQty <= 0">Add</button>
+
+<ul>
+    <li [ngClass]="{'odd': !isEven(i), 'even': isEven(i)}" *ngFor="let item of shoppingList; let i = index">
+        {{ i+1 }} - {{ item.name }} - {{ item.quantity }}
+    </li>
+</ul>
+
+<app-demo></app-demo>
+
+<input type="text" placeholder="Introduce your name" (keyup.enter)="addShoppingItem()" [(ngModel)]="userName">
+<input type="number" placeholder="Introduce your age" min="0" [(ngModel)]="userAge">
+<input type="text" placeholder="Introduce your email" (keyup.enter)="addShoppingItem()" [(ngModel)]="userEmail">
+<select name="gender" [(ngModel)]="userGenre">
+    <option value="female">female</option>
+    <option value="male">male</option>
+</select> 
+<br>
+<button (click)="addUser()">Submit</button>
+
+<ul>
+    <li [ngClass]="{'under18': item.age<18, 'between18and65': item.age>=18 && item.age<=65, 'over65': item.age>65}"
+         *ngFor="let item of userList; let i = index">
+        {{ i+1 }} - {{ item.name }} - {{ item.age }} - {{ item.email }} - {{ item.genre }}
+    </li>
+</ul>

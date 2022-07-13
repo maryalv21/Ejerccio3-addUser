@@ -1,0 +1,32 @@
+h1 {
+    color: red;
+}
+h2 {
+    color: blue;
+}
+p {
+    color: white;
+}
+
+.odd {
+    background-color: deeppink;
+    color: deepskyblue;
+    font-weight: 900;
+}
+.even {
+    background-color: antiquewhite;
+    color: chocolate;
+    font-weight: 900;
+}
+
+.under18 {
+    background-color: lightblue;
+}
+
+.between18and65 {
+    background-color: orangered;
+}
+
+.over65 {
+    background-color: crimson;
+}
